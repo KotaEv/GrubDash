@@ -10,7 +10,7 @@ function list (req, res) {
   res.json({ data: orders });
 }
 //if props are not validated ---> 400 error
-const validateProperties = (req, res, next) => {
+function validateProperties (req, res, next) {
   const { data } = req.body;
   const requiredProps = ['deliverTo', 'mobileNumber', 'dishes'];
   
@@ -58,7 +58,7 @@ function create(req, res) {
     res.status(201).json({ data: order });
 }
 
-const foundOrder = (orderId) => { 
+function foundOrder (orderId) { 
     return orders.find(({id}) => id===orderId);
 }
 
